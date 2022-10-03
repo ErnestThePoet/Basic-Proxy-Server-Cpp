@@ -100,8 +100,8 @@ void BasicProxyServer::RunServiceLoop() const
 
 		std::thread service_thread([client_socket]
 			{
-				// 1MB
-				constexpr int kBufferSize = 1 * 1024 * 1024;
+				// 2MB
+				constexpr int kBufferSize = 2 * 1024 * 1024;
 
 				std::vector<char> buffer(kBufferSize, '\0');
 
