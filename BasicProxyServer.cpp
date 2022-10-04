@@ -41,8 +41,8 @@ void BasicProxyServer::StartAtPort(u_short port)
 {
 	int err = 0;
 
-	WSADATA wsaData;
-	err = WSAStartup(MAKEWORD(2, 2), &wsaData);
+	WSADATA wsa_data;
+	err = WSAStartup(MAKEWORD(2, 2), &wsa_data);
 	if (err != 0)
 	{
 		// 由于还没有一次对WSAStartup的成功调用，WSACleanup不应在此被调用
@@ -50,7 +50,7 @@ void BasicProxyServer::StartAtPort(u_short port)
 		std::exit(-1);
 	}
 
-	if (LOBYTE(wsaData.wVersion) != 2 || HIBYTE(wsaData.wVersion) != 2)
+	if (LOBYTE(wsa_data.wVersion) != 2 || HIBYTE(wsa_data.wVersion) != 2)
 	{
 		ERROR_EXIT("socket版本错误");
 	}
